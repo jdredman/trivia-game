@@ -3,24 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Money Makeover Quiz</title>
+    <title>Smart Money Happy Hour Trivia</title>
     <link rel="stylesheet" href="style.css">
-    <script src="logic.js" type="module"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/euz0vgw.css">
+    <meta name="theme-color" content="#1cc8b4">
+
+    
 </head>
 <body>
-    <h1>Total Money Makeover Quiz</h1>
-    <div id="score-container">
-        Score: <span id="score">0</span>
-    </div>
-    <div class="container">
-        <div id="question-container">
-            <h2 id="question-text"></h2>
-            <div id="choices-container"></div>
-            <div id="result"></div>
-
-            <button id="next-button" onclick="nextQuestion()" disabled>Next Question</button>
+    <div class="heading" id="heading">
+        <img class="logo" src="./images/smhh-trivia-logo.png" alt="Smart Money Happy Hour Trivia">
+        <div id="score-container">
+            <span class="score">
+                Score: <span id="score">0</span>/10
+            </span>
         </div>
     </div>
+    <div class="container">
+
+        <!-- <span id="progress-text">0/10</span> -->
+        <progress id="progress-bar" value="0" max="10"></progress>
+   
+        <div id="question-container">
+            <h3 id="question-text"></h3>
+            <div id="choices-container"></div>
+            <div id="result"></div>
+            <button class="next" id="next-button" disabled>Next Question</button>
+        </div>
+        <div id="final-result-container" style="display: none;"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="questions.js"></script>
     <script src="logic.js"></script>
 </body>
 </html>

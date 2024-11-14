@@ -271,16 +271,6 @@ const questions = [
         correctAnswer: 0
     },
     {
-        question: "What should you do with any extra income, according to Ramsey?",
-        choices: [
-            "Spend it on a vacation",
-            "Use it to build up savings",
-            "Invest it in the stock market",
-            "Apply it to your debt snowball"
-        ],
-        correctAnswer: 3
-    },
-    {
         question: "What does Ramsey say about leasing cars?",
         choices: [
             "It’s the best way to own a new car",
@@ -751,5 +741,3 @@ const questions = [
         correctAnswer: 1
     }
 ];
-
-export default questions;
