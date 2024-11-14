@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Money Makeover Quiz</title>
     <link rel="stylesheet" href="style.css">
+    <script src="logic.js" type="module"></script>
 </head>
 <body>
+    <h1>Total Money Makeover Quiz</h1>
+    <div id="score-container">
+        Score: <span id="score">0</span>
+    </div>
     <div class="container">
-        <h1>Total Money Makeover Quiz</h1>
         <div id="question-container">
             <h2 id="question-text"></h2>
             <div id="choices-container"></div>
+            <div id="result"></div>
+
             <button id="next-button" onclick="nextQuestion()" disabled>Next Question</button>
-        </div>
-        <div id="score-container">
-            Score: <span id="score">0</span>
         </div>
     </div>
     <script src="logic.js"></script>
