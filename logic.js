@@ -168,7 +168,7 @@ function generateUUID() {
 
 // Constants for tracking
 const AIRTABLE_API_KEY =
-  "patoE4pi17nfMjjIG.38e64ce260f2e65d38c4bafc5c50b5ab195b68edfa1b483935cef1dcbfa64ffe";
+  "patr6PxPWs9Ss7zYI.5a89c0c0f6c7405409539fd25d0fcf1ed17163bdab99478236492d89d4fa9a41";
 const AIRTABLE_BASE_ID = "app4wgVhMc2LaOl17";
 const AIRTABLE_TABLE_NAME = "TriviaGame";
 
