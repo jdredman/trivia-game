@@ -50,11 +50,11 @@ function shuffle(array) {
 function startGame() {
     currentQuestionIndex = 0;
     score = 0;
-    elements.scoreContainer.textContent = score;
-    selectedQuestions = shuffle(questions).slice(0, 10);
-    elements.questionContainer.style.display = "block";
-    elements.finalResultContainer.style.display = "none";
-    elements.progressBar.value = 0;
+    scoreContainer.textContent = score;
+    selectedQuestions = shuffle(questions).slice(0, 7);
+    questionContainer.style.display = "block";
+    finalResultContainer.style.display = "none";
+    progressBar.value = 0;
     loadQuestion();
     elements.welcomeScreen.style.display = "none";
     elements.heading.style.display = "flex";
@@ -76,10 +76,6 @@ function loadQuestion() {
         button.onclick = () => selectAnswer(button, index);
         elements.choicesContainer.appendChild(button);
     });
-
-    // Update progress bar and text
-    elements.progressBar.value = currentQuestionIndex + 1;
-    // progressText.textContent = `${currentQuestionIndex + 1}/10`;
 }
 
 function selectAnswer(button, selectedIndex) {
@@ -99,6 +95,9 @@ function selectAnswer(button, selectedIndex) {
         sounds.incorrect.play();
         elements.resultContainer.innerHTML = `<h4>Oops, that's wrong!</h4><p>The answer is: "${selectedQuestions[currentQuestionIndex].choices[correctAnswer]}"</p>`;
     }
+
+    // Update progress bar after answering
+    progressBar.value = currentQuestionIndex + 1;
 
     // Disable all buttons after an answer is selected
     Array.from(elements.choicesContainer.children).forEach(btn => btn.disabled = true);

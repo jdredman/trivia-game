@@ -401,7 +401,7 @@ const questions = [
         correctAnswer: 0
     },
     {
-        question: "What does Dave Ramsey consider ‘normal’ but financially dangerous?",
+        question: "What does Dave Ramsey consider financially dangerous?",
         choices: [
             "Using cash only",
             "Living debt-free",
@@ -411,7 +411,7 @@ const questions = [
         correctAnswer: 2
     },
     {
-        question: "Why does Ramsey suggest renting when paying off debt?",
+        question: "Why does Ramsey suggest renting when on Baby Step 2?",
         choices: [
             "Renting is more affordable",
             "Renting allows saving for a down payment",
@@ -491,16 +491,6 @@ const questions = [
         correctAnswer: 0
     },
     {
-        question: "Which of the following is NOT part of Ramsey’s plan?",
-        choices: [
-            "Start an investment fund",
-            "Build an emergency fund",
-            "Create a detailed budget",
-            "Reduce monthly expenses"
-        ],
-        correctAnswer: 3
-    },
-    {
         question: "Why does Ramsey emphasize using cash instead of credit?",
         choices: [
             "Cash builds better credit",
@@ -563,7 +553,7 @@ const questions = [
     {
         question: "What is the goal of Baby Step 7?",
         choices: [
-            "Become completely debt-free",
+            "Build wealth and give",
             "Invest in stocks and bonds",
             "Buy luxury items",
             "Start using credit responsibly"
@@ -584,21 +574,21 @@ const questions = [
         question: "Why does Ramsey suggest using cash for everyday purchases?",
         choices: [
             "It builds a high credit score",
-            "It feels more personal than cards",
+            "It makes you spend less",
             "It increases spending limits",
             "It reduces long-term debt"
         ],
         correctAnswer: 1
     },
     {
-        question: "What does Ramsey say about saving for vacations?",
+        question: "What does Ramsey say about saving for vacations when on Baby Step 2?",
         choices: [
             "Finance it with low-interest loans",
             "Use credit cards to cover costs",
             "Create a vacation sinking fund",
             "Skip vacations until debt-free"
         ],
-        correctAnswer: 2
+        correctAnswer: 3
     },
     {
         question: "Why does Ramsey suggest keeping an emergency fund in cash?",
@@ -611,7 +601,7 @@ const questions = [
         correctAnswer: 0
     },
     {
-        question: "What does Ramsey recommend doing with your tax refund?",
+        question: "What does Ramsey recommend doing with your tax refund in Baby Step 2?",
         choices: [
             "Spend it on a vacation",
             "Apply it to your debt snowball",
@@ -641,16 +631,6 @@ const questions = [
         correctAnswer: 0
     },
     {
-        question: "What’s the best way to handle an irregular income, according to Ramsey?",
-        choices: [
-            "Only spend what's absolutely necessary",
-            "Budget for essentials and save the rest",
-            "Use credit cards to cover gaps",
-            "Spend more when you make more"
-        ],
-        correctAnswer: 1
-    },
-    {
         question: "In the Total Money Makeover, why is Baby Step 1 crucial?",
         choices: [
             "It builds emergency savings",
@@ -674,9 +654,9 @@ const questions = [
         question: "What does Ramsey recommend doing once all debts (except the mortgage) are paid?",
         choices: [
             "Reduce work hours",
-            "Start investing aggressively",
+            "Save 3-6 months of expenses",
             "Increase lifestyle spending",
-            "Build a college fund for kids"
+            "Buy Bitcoin"
         ],
         correctAnswer: 1
     },
@@ -689,16 +669,6 @@ const questions = [
             "It simplifies financial planning"
         ],
         correctAnswer: 1
-    },
-    {
-        question: "According to Ramsey, when is it acceptable to borrow money?",
-        choices: [
-            "For emergencies",
-            "For investments",
-            "For appreciating assets",
-            "Never, under any circumstances"
-        ],
-        correctAnswer: 3
     },
     {
         question: "Why does Ramsey advocate living on less than you make?",

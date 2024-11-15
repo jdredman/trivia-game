@@ -17,12 +17,12 @@
         <img class="logo" src="./images/smhh-trivia-logo.png" alt="Smart Money Happy Hour Trivia">
         <div id="score-container">
             <span class="score">
-                Score: <span id="score">0</span>/10
+                Score: <span id="score">0</span>/7
             </span>
         </div>
     </div>
-    <div class="container hidden" id="game-container">
-        <progress id="progress-bar" value="0" max="10"></progress>
+    <div class="container" id="game-container" style="display: none;">
+        <progress id="progress-bar" value="0" max="7"></progress>
         <div id="question-container">
             <h3 id="question-text"></h3>
             <div id="choices-container"></div>
@@ -31,7 +31,7 @@
         </div>
         <div id="final-result-container" class="hidden">
             <h2>Thanks for Playing!</h2>
-            <p>Your final score is <span id="final-score"></span> out of 10.</p>
+            <p>Your final score is <span id="final-score"></span> out of 7.</p>
             <button id="restart-button">Play Again</button>
         </div>
     </div>
