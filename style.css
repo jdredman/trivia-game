@@ -195,4 +195,8 @@ progress {
         background-color: #fff;
         color: #0073b9;
         border-width: 0;
+    }
+}
+.hidden {
+    display: none;
 }

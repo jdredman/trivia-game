@@ -1,29 +1,43 @@
+// Constants
+const ELEMENT_IDS = {
+    questionText: "question-text",
+    choicesContainer: "choices-container",
+    nextButton: "next-button",
+    scoreContainer: "score",
+    resultContainer: "result",
+    questionContainer: "question-container",
+    finalResultContainer: "final-result-container",
+    progressBar: "progress-bar",
+    heading: "heading",
+    welcomeScreen: "welcome-screen",
+    startButton: "start-button",
+    gameContainer: "game-container",
+    restartButton: "restart-button"
+};
+
+// Elements
+const elements = {};
+for (const [key, id] of Object.entries(ELEMENT_IDS)) {
+    elements[key] = document.getElementById(id);
+}
+
+// Audio
+const sounds = {
+    correct: new Audio('sound/correct.mp3'),
+    incorrect: new Audio('sound/incorrect.mp3'),
+    background: new Audio('sound/background.mp3')
+};
+sounds.background.loop = true;
+
+// Game state
 let currentQuestionIndex = 0;
 let score = 0;
 let selectedQuestions = [];
 
-// Elements
-const questionText = document.getElementById("question-text");
-const choicesContainer = document.getElementById("choices-container");
-const nextButton = document.getElementById("next-button");
-const scoreContainer = document.getElementById("score");
-const resultContainer = document.getElementById("result");
-const questionContainer = document.getElementById("question-container");
-const finalResultContainer = document.getElementById("final-result-container");
-const progressBar = document.getElementById("progress-bar");
-const heading = document.getElementById("heading");
-const welcomeScreen = document.getElementById("welcome-screen");
-const startButton = document.getElementById("start-button");
-const gameContainer = document.getElementById("game-container");
-const restartButton = document.getElementById("restart-button");
-const correctSound = new Audio('sound/correct.mp3');
-const incorrectSound = new Audio('sound/incorrect.mp3');
-const backgroundMusic = new Audio('sound/background.mp3');
-backgroundMusic.loop = true;
-
-startButton.addEventListener("click", startGame);
-nextButton.addEventListener("click", loadNextQuestion);
-restartButton.addEventListener("click", restartGame);
+// Event listeners
+elements.startButton.addEventListener("click", startGame);
+elements.nextButton.addEventListener("click", loadNextQuestion);
+elements.restartButton.addEventListener("click", restartGame);
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -36,35 +50,35 @@ function shuffle(array) {
 function startGame() {
     currentQuestionIndex = 0;
     score = 0;
-    scoreContainer.textContent = score;
+    elements.scoreContainer.textContent = score;
     selectedQuestions = shuffle(questions).slice(0, 10);
-    questionContainer.style.display = "block";
-    finalResultContainer.style.display = "none";
-    progressBar.value = 0;
+    elements.questionContainer.style.display = "block";
+    elements.finalResultContainer.style.display = "none";
+    elements.progressBar.value = 0;
     loadQuestion();
-    welcomeScreen.style.display = "none";
-    heading.style.display = "flex";
-    gameContainer.style.display = "block";
-    backgroundMusic.play();
+    elements.welcomeScreen.style.display = "none";
+    elements.heading.style.display = "flex";
+    elements.gameContainer.style.display = "block";
+    sounds.background.play();
 }
 
 function loadQuestion() {
-    nextButton.disabled = true;
-    resultContainer.innerHTML = ""; // Clear previous result
+    elements.nextButton.disabled = true;
+    elements.resultContainer.innerHTML = ""; // Clear previous result
     const currentQuestion = selectedQuestions[currentQuestionIndex];
-    questionText.textContent = currentQuestion.question;
+    elements.questionText.textContent = currentQuestion.question;
 
-    choicesContainer.innerHTML = ""; // Clear previous choices
+    elements.choicesContainer.innerHTML = ""; // Clear previous choices
 
     currentQuestion.choices.forEach((choice, index) => {
         const button = document.createElement("button");
         button.textContent = choice;
         button.onclick = () => selectAnswer(button, index);
-        choicesContainer.appendChild(button);
+        elements.choicesContainer.appendChild(button);
     });
 
     // Update progress bar and text
-    progressBar.value = currentQuestionIndex + 1;
+    elements.progressBar.value = currentQuestionIndex + 1;
     // progressText.textContent = `${currentQuestionIndex + 1}/10`;
 }
 
@@ -73,42 +87,42 @@ function selectAnswer(button, selectedIndex) {
 
     if (selectedIndex === correctAnswer) {
         button.classList.add('button-correct');
-        resultContainer.classList.add('alert-correct');
-        correctSound.play();
+        elements.resultContainer.classList.add('alert-correct');
+        sounds.correct.play();
         score++;
-        scoreContainer.textContent = score;
-        resultContainer.innerHTML = `<h4>That's Right, Nice Job!</h4>`;
+        elements.scoreContainer.textContent = score;
+        elements.resultContainer.innerHTML = `<h4>That's Right, Nice Job!</h4>`;
         triggerConfetti();
     } else {
         button.classList.add('button-incorrect');
-        resultContainer.classList.add('alert-incorrect');
-        incorrectSound.play();
-        resultContainer.innerHTML = `<h4>Oops, that's wrong!</h4><p>The answer is: "${selectedQuestions[currentQuestionIndex].choices[correctAnswer]}"</p>`;
+        elements.resultContainer.classList.add('alert-incorrect');
+        sounds.incorrect.play();
+        elements.resultContainer.innerHTML = `<h4>Oops, that's wrong!</h4><p>The answer is: "${selectedQuestions[currentQuestionIndex].choices[correctAnswer]}"</p>`;
     }
 
     // Disable all buttons after an answer is selected
-    Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
-    nextButton.disabled = false;
-    nextButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    Array.from(elements.choicesContainer.children).forEach(btn => btn.disabled = true);
+    elements.nextButton.disabled = false;
+    elements.nextButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function loadNextQuestion() {
-    resultContainer.classList.remove('alert-correct', 'alert-incorrect');
+    elements.resultContainer.classList.remove('alert-correct', 'alert-incorrect');
 
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         loadQuestion();
-        heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        elements.heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
     } else {
         endGame();
-        heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        elements.heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
 
 function endGame() {
-    questionContainer.style.display = "none";
-    finalResultContainer.style.display = "block";
+    elements.questionContainer.style.display = "none";
+    elements.finalResultContainer.style.display = "block";
     document.getElementById("final-score").textContent = score;
 }
 
