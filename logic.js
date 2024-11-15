@@ -102,6 +102,7 @@ function loadNextQuestion() {
 
     } else {
         endGame();
+        heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
 
