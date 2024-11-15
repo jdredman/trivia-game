@@ -47,8 +47,8 @@ function shuffle(array) {
   return array;
 }
 
-function startGame() {
-  trackEvent("GameStarted");
+function startGame(shouldCallTrackEvent = true) {
+  if (shouldCallTrackEvent) trackEvent("GameStarted");
   currentQuestionIndex = 0;
   score = 0;
   elements.scoreContainer.textContent = score;
@@ -130,7 +130,7 @@ function endGame() {
 
 function restartGame() {
   trackEvent("GameRestarted");
-  startGame();
+  startGame(false);
 }
 
 function triggerConfetti() {
@@ -171,6 +171,7 @@ const AIRTABLE_API_KEY =
   "patr6PxPWs9Ss7zYI.5a89c0c0f6c7405409539fd25d0fcf1ed17163bdab99478236492d89d4fa9a41";
 const AIRTABLE_BASE_ID = "app4wgVhMc2LaOl17";
 const AIRTABLE_TABLE_NAME = "TriviaGame";
+const SESSION_ID = generateUUID();
 
 // Tracking function
 async function trackEvent(eventName, score = 0) {
@@ -187,7 +188,7 @@ async function trackEvent(eventName, score = 0) {
           records: [
             {
               fields: {
-                SessionID: generateUUID(),
+                SessionID: SESSION_ID,
                 Event: eventName,
                 Score: score,
               },
