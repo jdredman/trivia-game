@@ -98,6 +98,7 @@ function loadNextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         loadQuestion();
+        heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
     } else {
         endGame();
