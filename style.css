@@ -179,3 +179,20 @@ progress {
         border-radius: 10px 0 0 10px;
     }
 }
+
+#welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .logo {
+        max-width: 300px;
+    }
+    button {
+        margin-top: 20px;
+        background-color: #fff;
+        color: #0073b9;
+        border-width: 0;
+}
