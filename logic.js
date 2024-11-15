@@ -48,7 +48,10 @@ function shuffle(array) {
 }
 
 function startGame(shouldCallTrackEvent = true) {
-  if (shouldCallTrackEvent) trackEvent("GameStarted");
+  if (shouldCallTrackEvent) {
+    trackEvent("GameStarted");
+  }
+
   currentQuestionIndex = 0;
   score = 0;
   elements.scoreContainer.textContent = score;
